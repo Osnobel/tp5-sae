@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {block name="keywords"}
+    <meta name="keywords" content="GoshDo,光芯岛">
+    {/block}
+    {block name="description"}
+    <meta name="description" content="GoshDo | 光芯岛 Focus on mobile platform development | 专注移动平台开发">
+    {/block}
+    {block name="title"}
+    <title>GoshDo | 光芯岛</title>
+    {/block}
+    <link type="image/x-icon" href="__STATIC__/favicon.ico" rel="shortcut icon">
+    <link rel="apple-touch-icon" href="__STATIC__/apple-touch-icon.png">
+    <!--样式-->
+    <link type="text/css" href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background: #e2e2e2;
+        }
+        
+        .page {
+            background: #fff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            margin-bottom: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #bbb;
+        }
+        
+        .logo {
+            margin-right: 10px;
+            float: left;
+        }
+        
+        .site-title {
+            padding-top: 10px;
+        }
+        
+        .site-title a {
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .site-title a:hover,
+        .site-title a:focus,
+        .site-title a:active {
+            color: #337ab7;
+        }
+        
+        .site-description {
+            color: #7a7a7a;
+        }
+        
+        .navigation {
+            background: #222;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        
+        .footer {
+            background: #f9f9f9;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 12px;
+            line-height: 20px;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+    {block name="style"}<!--自定义样式-->{/block}
+    <!--/样式-->
+    <!--引入所需要的jquery和插件-->
+    <script type="text/javascript" src="__JS__/jquery-2.1.4.min.js"></script>
+    {block name="script"}<!--自定义JS插件-->{/block}
+    <!--/引入所需要的jquery和插件-->
+</head>
+
+<body>
+    <div class="container page">
+        <!--头部-->
+        <div class="row header">
+            <!--logo-->
+            {block name="logo"}
+            <div class="col-xs-12">
+                <a href="/" class="logo" title="logo" rel="home">
+                    <img src="__STATIC__/logo.png" alt="logo">
+                </a>
+                <h2 class="site-title"><a href="/" title="GoshDo | 光芯岛" rel="home">GoshDo | 光芯岛</a></h2>
+                <h4 class="site-description">Focus on mobile platform development | 专注移动平台开发</h4>
+            </div>
+            {/block}
+            <!--/logo-->
+            <!--导航-->
+            {block name="navigation"}
+            <div class="col-xs-12 navigation">
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="/">首页</a></li>
+                    <li><a href="/about/">关于</a></li>
+                </ul>
+            </div>
+            {/block}
+            <!--/导航-->
+        </div>
+        <!--/头部-->
+        <!--中间-->
+        <div class="row">
+            {block name="main"}<!--主内容-->{/block}
+        </div>
+        <!--中间-->
+        <!--尾部-->
+        <div class="row footer">
+            {block name="footer"}
+            <!--Copyright-->
+            <div class="col-xs-12">
+                Copyright © 2014 - {:date("Y")}
+                <a href="/" title="GoshDo" rel="home"><strong>GoshDo</strong></a>
+                <a href="/" title="光芯岛" rel="home"><strong>光芯岛</strong></a> All Rights Reserved
+                <a href="http://t.cn/R4WnB8p" target="_blank">
+                    <img src="http://static.sae.sina.com.cn/image/poweredby/117X12px.gif" title="Powered by Sina App Engine">
+                </a>
+            </div>
+            <!--/Copyright-->
+            {/block}
+        </div>
+        <!--/尾部-->
+    </div>
+</body>
+
+</html>

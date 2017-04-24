@@ -10,12 +10,12 @@
 // +----------------------------------------------------------------------
 
 return [
-    '__pattern__' => [
-        'name' => '\w+',
-    ],
-    '[hello]'     => [
-        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-        ':name' => ['index/hello', ['method' => 'post']],
-    ],
-
+    'api/getApps/[:offset]/[:length]'   => ['api/MyApps/index', ['method' => 'get'], ['offset' => '\d+', 'length' => '\d+']],
+    // '[checkVersion]'    =>  [
+    //     ':version/:trackId/[:country]'  =>  ['api/CheckVersion/index', ['method' => 'get'], ['trackId' => '\d+']],
+    //     ':version/:bundleId/:artistId/[:country]'  =>  ['api/CheckVersion/index', ['method' => 'get'], ['artistId' => '\d+']],
+    // ],// 此写法不能自动识别大小写checkversion
+    'api/checkVersion/:version/:trackId/[:country]'  =>  ['api/CheckVersion/index', ['method' => 'get'], ['trackId' => '\d+']],
+    'api/checkVersion/:version/:bundleId/:artistId/[:country]'  =>  ['api/CheckVersion/index', ['method' => 'get'], ['artistId' => '\d+']],
+    'about' => 'index/About/index',
 ];
