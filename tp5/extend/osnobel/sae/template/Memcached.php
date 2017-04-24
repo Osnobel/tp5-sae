@@ -28,7 +28,7 @@ class Memcached extends \osnobel\sae\template\KVDB
         if (!$this->handler) {
             throw new \BadFunctionCallException('memcache init error');
         }
-        $prefix = 'template/' . $_SERVER['HTTP_APPVERSION'] . '/';
+        $this->prefix = 'template/' . $_SERVER['HTTP_APPVERSION'] . '/';
     }
 
     /**
@@ -40,6 +40,6 @@ class Memcached extends \osnobel\sae\template\KVDB
      */
     protected function set($filename, $content)
     {
-        return $this->handler->set($prefix . $filename, $content, 0);
+        return $this->handler->set($this->prefix . $filename, $content, 0);
     }
 }

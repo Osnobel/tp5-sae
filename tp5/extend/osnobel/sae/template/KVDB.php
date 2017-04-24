@@ -35,7 +35,7 @@ class KVDB
         if (!$this->handler->init()) {
             throw new \BadFunctionCallException('KVDB init error');
         }
-        $prefix = 'template/' . $_SERVER['HTTP_APPVERSION'] . '/';
+        $this->prefix = 'template/' . $_SERVER['HTTP_APPVERSION'] . '/';
     }
 
     /**
@@ -103,7 +103,7 @@ class KVDB
     protected function get($filename, $name)
     {
         if (!isset($this->contents[$filename])) {
-            $this->contents[$filename] = $this->handler->get($prefix . $filename);
+            $this->contents[$filename] = $this->handler->get($this->prefix . $filename);
         }
         $content = $this->contents[$filename];
 
@@ -126,6 +126,6 @@ class KVDB
      */
     protected function set($filename, $content)
     {
-        return $this->handler->set($prefix . $filename, $content);
+        return $this->handler->set($this->prefix . $filename, $content);
     }
 }
