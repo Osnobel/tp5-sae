@@ -15,13 +15,6 @@ use think\Exception;
 
 class Memcached extends \osnobel\sae\template\KVDB
 {
-    // handler 对象
-    private $handler;
-    // 编译缓存内容
-    private $contents = [];
-    // 缓存前缀
-    private $prefix = '';
-
     /**
      * 构造函数
      * @access public
@@ -39,21 +32,14 @@ class Memcached extends \osnobel\sae\template\KVDB
     }
 
     /**
-     * 写入编译缓存
-     * @param string $cacheFile 缓存的文件名
-     * @param string $content 缓存的内容
-     * @return void|array
+     * 写入缓存文件信息
+     * @access protected
+     * @param string $filename  文件名
+     * @param string $content  文件内容
+     * @return boolean|string
      */
-    public function write($cacheFile, $content)
+    protected function set($filename, $content)
     {
-        // 添加写入时间
-        $content = sprintf('%010d', $_SERVER['REQUEST_TIME']) . $content;
-        // 生成模板缓存文件
-        if (false === $this->handler->set($prefix . $cacheFile, $content, 0)) {
-            throw new Exception('cache write error:' . $cacheFile);
-        } else {
-            $this->contents[$cacheFile] = $content;
-            return true;
-        }
+        return $this->handler->set($prefix . $filename, $content, 0);
     }
 }

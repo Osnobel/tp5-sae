@@ -16,11 +16,11 @@ use think\Exception;
 class KVDB
 {
     // handler 对象
-    private $handler;
+    protected $handler;
     // 编译缓存内容
-    private $contents = [];
+    protected $contents = [];
     // 缓存前缀
-    private $prefix = '';
+    protected $prefix = '';
 
     /**
      * 构造函数
@@ -49,7 +49,7 @@ class KVDB
         // 添加写入时间
         $content = sprintf('%010d', $_SERVER['REQUEST_TIME']) . $content;
         // 生成模板缓存文件
-        if (false === $this->handler->set($prefix . $cacheFile, $content)) {
+        if (false === $this->set($cacheFile, $content)) {
             throw new Exception('cache write error:' . $cacheFile);
         } else {
             $this->contents[$cacheFile] = $content;
@@ -95,12 +95,12 @@ class KVDB
 
     /**
      * 读取缓存文件信息
-     * @access private
+     * @access protected
      * @param string $filename  文件名
      * @param string $name  信息名 mtime或者content
      * @return boolean|string
      */
-    private function get($filename, $name)
+    protected function get($filename, $name)
     {
         if (!isset($this->contents[$filename])) {
             $this->contents[$filename] = $this->handler->get($prefix . $filename);
@@ -115,5 +115,17 @@ class KVDB
             'content' => substr($content, 10),
         );
         return $info[$name];
+    }
+
+    /**
+     * 写入缓存文件信息
+     * @access protected
+     * @param string $filename  文件名
+     * @param string $content  文件内容
+     * @return boolean|string
+     */
+    protected function set($filename, $content)
+    {
+        return $this->handler->set($prefix . $filename, $content);
     }
 }
