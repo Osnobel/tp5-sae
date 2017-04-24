@@ -47,7 +47,7 @@ class Memcached extends \osnobel\sae\template\KVDB
     public function write($cacheFile, $content)
     {
         // 添加写入时间
-        $content = sprintf('%010d', $$_SERVER['REQUEST_TIME']) . $content;
+        $content = sprintf('%010d', $_SERVER['REQUEST_TIME']) . $content;
         // 生成模板缓存文件
         if (false === $this->handler->set($prefix . $cacheFile, $content, 0)) {
             throw new Exception('cache write error:' . $cacheFile);
