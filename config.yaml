@@ -2,4 +2,5 @@ name: goshdo
 version: 5
 
 handle:
-- rewrite: if(!-d && !-f && path ~ "^(.*)$") goto "/public/index.php/$1"
+- rewrite: if (path !~ "^/public/.*$") goto "/public/%{REQUEST_URI}"
+- rewrite: if(!-d && !-f && path ~ "^/public/(.*)$") goto "/public/index.php/$1"
