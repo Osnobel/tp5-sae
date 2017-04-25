@@ -11,13 +11,13 @@ ThinkPHP 5.0 SAE扩展
 在框架根目录下安装
 
 ```bash
-$ composer require Osnobel/tp5-sae
+$ composer require osnobel/tp5-sae
 ```
 
 更新
 
 ```bash
-$ composer update Osnobel/tp5-sae
+$ composer update osnobel/tp5-sae
 ```
 
 ### Git Subtree
