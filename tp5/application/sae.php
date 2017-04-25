@@ -48,7 +48,7 @@ return [
     'template'  =>  [
         // 模板引擎类型 支持 php think 支持扩展
         'type'         => 'Think',
-        'compile_type'  =>  '\osnobel\sae\template\Memcached',
+        'compile_type'  =>  '\osnobel\sae\template\KVDB',
         // 模板引擎普通标签开始标记
         'tpl_begin'    => '{',
         // 模板引擎普通标签结束标记
@@ -64,7 +64,7 @@ return [
     // +----------------------------------------------------------------------
     'cache'     =>  [
         // 驱动方式
-        'type'   => '\osnobel\sae\cache\Memcached',
+        'type'   => '\osnobel\sae\cache\KVDB',
         // 缓存前缀
         'prefix' => '',
         // 缓存有效期 0表示永久缓存
