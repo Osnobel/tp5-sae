@@ -7,6 +7,7 @@ class Index extends Controller
 {
     public function index()
     {
+        dump(config());
         $apps = controller('api/MyApps')->index(0,6);
         $this->assign('apps',$apps);
         return $this->fetch();
