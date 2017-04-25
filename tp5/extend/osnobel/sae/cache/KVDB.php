@@ -72,7 +72,7 @@ class KVDB extends Driver
                 $this->rm($name);
                 return $default;
             }
-            return substr($result, 10);
+            return unserialize(substr($result, 10));
         } else {
             return $default;
         }
@@ -96,7 +96,7 @@ class KVDB extends Driver
         }
         $key    = $this->getCacheKey($name);
         $expire = 0 == $expire ? 0 : $_SERVER['REQUEST_TIME'] + $expire;
-        if ($this->handler->set($key, sprintf('%010d', $expire) . $value)) {
+        if ($this->handler->set($key, sprintf('%010d', $expire) . serialize($value))) {
             isset($first) && $this->setTagItem($key);
             return true;
         }
