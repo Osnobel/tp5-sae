@@ -1,0 +1,19 @@
+{
+    "name": "Osnobel/tp5-sae",
+    "description": "sae support for thinkphp5",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "goshdo",
+            "email": "goshdo2013@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "osnobel\\sae\\": "sae/"
+        },
+        "files": [
+        ]
+    }
+}
