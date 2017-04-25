@@ -7,5 +7,5 @@
 
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^public\/(.*)$ public/index.php/$1 [QSA,PT,L]
+  RewriteRule ^public/(.*)$ public/index.php/$1 [QSA,PT,L]
 </IfModule>
